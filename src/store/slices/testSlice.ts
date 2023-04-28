@@ -8,6 +8,8 @@ interface IScheduleState {
   textData: string[],
   status: ETestStatus,
   currentIndex: number,
+  startTime: number,
+  quality: number,
   isLoading: boolean,
   isFinish: boolean,
   error: string
@@ -17,6 +19,8 @@ const initialState: IScheduleState = {
   textData: [],
   status: ETestStatus.WAITING,
   currentIndex: 0,
+  startTime: 0,
+  quality: 0,
   isLoading: false,
   isFinish: false,
   error: ''
@@ -39,6 +43,10 @@ const testSlice = createSlice({
         return;
       }
 
+      if (state.status !== ETestStatus.ERROR) {
+        state.quality = state.quality - (1 / state.textData.length);
+      }
+
       state.status = ETestStatus.ERROR;
     }
   },
@@ -51,6 +59,8 @@ const testSlice = createSlice({
         state.isLoading = false;
         state.textData = getTestArray(action.payload);
         state.currentIndex = 0;
+        state.quality = 100;
+        state.startTime = Date.now();
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.isLoading = false;
