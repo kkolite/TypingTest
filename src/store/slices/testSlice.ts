@@ -3,6 +3,7 @@ import { createSlice, createAsyncThunk, PayloadAction, AnyAction } from '@reduxj
 import { ETestStatus } from '../../data/types';
 import { getTextFromAPI } from '../../API/TextAPI';
 import { getTestArray } from '../../utils';
+import { getSpeed } from '../../utils/getSpeed';
 
 interface IScheduleState {
   textData: string[],
@@ -10,6 +11,8 @@ interface IScheduleState {
   currentIndex: number,
   startTime: number,
   quality: number,
+  speed: number,
+  interval: number,
   isLoading: boolean,
   isFinish: boolean,
   error: string
@@ -21,6 +24,8 @@ const initialState: IScheduleState = {
   currentIndex: 0,
   startTime: 0,
   quality: 0,
+  speed: 0,
+  interval: 0,
   isLoading: false,
   isFinish: false,
   error: ''
@@ -48,6 +53,14 @@ const testSlice = createSlice({
       }
 
       state.status = ETestStatus.ERROR;
+    },
+    setSpeed(state, action: PayloadAction<number>) {
+      state.interval = setInterval(() => (
+        state.speed = getSpeed(state.startTime, state.currentIndex)
+      ), action.payload)
+    },
+    stopInterval(state) {
+      clearInterval(state.interval);
     }
   },
   extraReducers: (builder) => {
@@ -60,6 +73,8 @@ const testSlice = createSlice({
         state.textData = getTestArray(action.payload);
         state.currentIndex = 0;
         state.quality = 100;
+        state.isFinish = false;
+        state.speed = 0;
         state.startTime = Date.now();
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
@@ -75,4 +90,4 @@ function isError(action: AnyAction) {
 
 export default testSlice.reducer;
 
-export const { check } = testSlice.actions;
+export const { check, setSpeed, stopInterval } = testSlice.actions;
