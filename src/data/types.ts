@@ -9,5 +9,8 @@ export interface IApi {
 
 export enum ETestStatus {
   ERROR,
-  WAITING
+  WAITING,
+  LOADING,
+  FINISH,
+  SLEEP
 }

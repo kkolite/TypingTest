@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk, PayloadAction, AnyAction } from '@reduxj
 import { ETestStatus } from '../../data/types';
 import { getTextFromAPI } from '../../API/TextAPI';
 import { getTestArray } from '../../utils';
-import { getSpeed } from '../../utils/getSpeed';
 
 interface IScheduleState {
   textData: string[],
@@ -13,21 +12,17 @@ interface IScheduleState {
   quality: number,
   speed: number,
   interval: number,
-  isLoading: boolean,
-  isFinish: boolean,
   error: string
 }
 
 const initialState: IScheduleState = {
   textData: [],
-  status: ETestStatus.WAITING,
+  status: ETestStatus.SLEEP,
   currentIndex: 0,
   startTime: 0,
   quality: 0,
   speed: 0,
   interval: 0,
-  isLoading: false,
-  isFinish: false,
   error: ''
 };
 
@@ -41,44 +36,43 @@ const testSlice = createSlice({
   initialState,
   reducers: {
     check(state, action: PayloadAction<string>) {
+      if (state.textData.length === 0) return;
+      
       if (action.payload === state.textData[state.currentIndex]) {
         state.currentIndex += 1;
-        state.status = ETestStatus.WAITING;
-        state.isFinish = state.currentIndex === state.textData.length;
+        state.status = state.currentIndex === state.textData.length 
+        ? ETestStatus.FINISH
+        : ETestStatus.WAITING;
         return;
       }
-
-      if (state.status !== ETestStatus.ERROR) {
-        state.quality = state.quality - (1 / state.textData.length);
+      
+      if (state.status === ETestStatus.WAITING) {
+        state.quality -= (100 / state.textData.length);
       }
 
       state.status = ETestStatus.ERROR;
     },
-    setSpeed(state, action: PayloadAction<number>) {
-      state.interval = setInterval(() => (
-        state.speed = getSpeed(state.startTime, state.currentIndex)
-      ), action.payload)
-    },
-    stopInterval(state) {
-      clearInterval(state.interval);
+    setSpeed(state) {
+      const now = Date.now();
+      const time = now - state.startTime;
+      state.speed = state.currentIndex / (time / 60000)
     }
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchText.pending, (state) => {
-        state.isLoading = true;
+        state.status = ETestStatus.LOADING;
       })
       .addCase(fetchText.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.status = ETestStatus.WAITING;
         state.textData = getTestArray(action.payload);
         state.currentIndex = 0;
         state.quality = 100;
-        state.isFinish = false;
         state.speed = 0;
         state.startTime = Date.now();
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        state.isLoading = false;
+        state.status = ETestStatus.WAITING;
         state.error = action.payload;
       });
   },
@@ -90,4 +84,4 @@ function isError(action: AnyAction) {
 
 export default testSlice.reducer;
 
-export const { check, setSpeed, stopInterval } = testSlice.actions;
+export const { check, setSpeed } = testSlice.actions;

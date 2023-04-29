@@ -1,0 +1,32 @@
+.container {
+  position: relative;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px dotted rgb(111, 203, 249);
+  animation: rotate 1s infinite linear;
+
+}
+
+.text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
