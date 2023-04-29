@@ -5,19 +5,19 @@ import { useAppSelector } from "../store/hook";
 export const Test = () => {
   const status = useAppSelector(store => store.test.status)
   return (
-    <div>
+    <>
       {status === ETestStatus.SLEEP ? <Start /> : <></>}
       {status === ETestStatus.LOADING ? <Loader /> : <></>}
       {status === ETestStatus.FINISH ? <Finish /> : <></>}
       {status === ETestStatus.API_ERROR ? <ErrorMessage /> : <></>}
       {
         (status === ETestStatus.WAITING || status === ETestStatus.ERROR)
-         ? <div>
+         ? <>
              <Controls />
              <Text />
-           </div> 
+           </> 
          : <></>
       }
-    </div>
+    </>
   );
 };

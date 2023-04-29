@@ -1,12 +1,25 @@
 .error {
-  color: red;
+  background-color: red;
+  color: white
 }
 
 .completed {
-  color: green;
+  color: orange;
 }
 
 .waiting {
-  background-color: lawngreen;
+  background-color: orange;
   color: white;
+}
+
+.textarea {
+  min-width: 300px;
+  width: 50%;
+  border: 1px solid orange;
+  padding: 40px;
+  border-radius: 40px;
+
+  & span {
+    font-size: 40px;
+  }
 }

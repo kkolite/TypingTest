@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 50%;
+  min-width: 300px;
+  margin: auto 0;
+}
+
+.h {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.text {
+  font-size: 25px;
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  & li {
+    font-size: 22px;
+  }
+}
+
+.input {
+  display: block;
+  width: 300px;
+  height: 39px;
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.button {
+  font-size: 25px;
+  padding: 10px 30px;
+
+  &__container {
+    display: flex;
+    gap: 15px;
+  }
+}

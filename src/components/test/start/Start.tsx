@@ -1,6 +1,7 @@
 import { useKeypress, useSpeed } from "../../../hooks";
 import { useAppDispatch } from "../../../store/hook";
 import { fetchText } from "../../../store/slices/testSlice";
+import styles from './Start.module.scss';
 
 export const Start = () => {
   const dispatch = useAppDispatch();
@@ -14,9 +15,14 @@ export const Start = () => {
   }
 
   return (
-    <div>
-      <p>Are you ready?</p>
-      <button onClick={handleClick}>Let's Start!</button>
+    <div className={styles.container}>
+      <p className={styles.text}>Are you ready?</p>
+      <button 
+        onClick={handleClick} 
+        className={styles.button + ' button'}
+      >
+        Let's Start!
+      </button>
     </div>
   );
 };

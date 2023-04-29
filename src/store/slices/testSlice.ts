@@ -9,6 +9,7 @@ interface IScheduleState {
   status: ETestStatus,
   currentIndex: number,
   startTime: number,
+  endTime: number,
   quality: number,
   speed: number,
   interval: number,
@@ -20,6 +21,7 @@ const initialState: IScheduleState = {
   status: ETestStatus.SLEEP,
   currentIndex: 0,
   startTime: 0,
+  endTime: 0,
   quality: 0,
   speed: 0,
   interval: 0,
@@ -40,9 +42,10 @@ const testSlice = createSlice({
       
       if (action.payload === state.textData[state.currentIndex]) {
         state.currentIndex += 1;
-        state.status = state.currentIndex === state.textData.length 
-        ? ETestStatus.FINISH
-        : ETestStatus.WAITING;
+        
+        const condition = state.currentIndex === state.textData.length;
+        state.status = condition ? ETestStatus.FINISH : ETestStatus.WAITING;
+        state.endTime = condition ? Date.now() : 0;
         return;
       }
       
@@ -56,6 +59,9 @@ const testSlice = createSlice({
       const now = Date.now();
       const time = now - state.startTime;
       state.speed = state.currentIndex / (time / 60000)
+    },
+    finish(state) {
+      state.status = ETestStatus.SLEEP;
     }
   },
   extraReducers: (builder) => {
@@ -70,6 +76,7 @@ const testSlice = createSlice({
         state.quality = 100;
         state.speed = 0;
         state.startTime = Date.now();
+        state.endTime = 0;
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
         state.status = ETestStatus.API_ERROR;
@@ -84,4 +91,4 @@ function isError(action: AnyAction) {
 
 export default testSlice.reducer;
 
-export const { check, setSpeed } = testSlice.actions;
+export const { check, setSpeed, finish } = testSlice.actions;

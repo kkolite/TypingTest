@@ -16,7 +16,7 @@ export const Text = () => {
   }
 
   return (
-    <div>
+    <div className={styles.textarea}>
       {data.map((el, i) => (
         <span 
           key={i}
