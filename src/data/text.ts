@@ -29,5 +29,10 @@ export const TEXT = {
     START: 'Let\'s Start!',
     PLACEHOLDER: 'Enter your name',
     EMPTY: 'Empty top. Firstly pass test :)',
+  },
+
+  ABOUT: {
+    QUOTE: '"Mastering typing is not just about speed, it\'s about communicating with accuracy and confidence in the digital age."',
+    QUOTE_AUTHOR: 'Chat GPT'
   }
 }

@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../store/hook"
+import { useAppDispatch } from "../store/hook";
 import { setSpeed } from "../store/slices/testSlice";
 
 let interval = 0;

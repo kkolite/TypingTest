@@ -1,0 +1,150 @@
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  padding: 50px 0;
+  color: orange;
+
+  & h4 {
+    font-size: 40px;
+    max-width: 450px;
+  }
+
+  & ul {
+    text-align: start;
+    & li {
+      font-size: 25px;
+    }
+  }
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 50%;
+  padding: 150px 0;
+  color: white;
+  
+  &__container {
+    background: linear-gradient(white 5%, orange 30%, orange 70%, white 95%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__text {
+    font-size: 30px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  &__author {
+    font-size: 35px;
+  }
+}
+
+.image {
+  width: auto;
+  height: auto;
+  max-height: 300px;
+  max-height: 300px;
+  transition: all 1s;
+  opacity: 0;
+  transform: translateY(70px);
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: all 1s;
+  opacity: 0;
+  transform: translatex(-70px);
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.button {
+  font-size: 30px;
+  padding: 15px 40px;
+  margin-top: 30px;
+  background-color: orange;
+  opacity: .8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: all .2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.active {
+
+  &__image {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__text {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .section,
+  .quote {
+    width: 650px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .image {
+    max-height: 200px;
+    max-height: 200px;
+  }
+
+  .section,
+  .quote {
+    width: 80%;
+  }
+
+  .section {
+    font-size: 18px;
+    padding: 30px 10%;
+  
+    & h4 {
+      font-size: 25px;
+      max-width: 350px;
+    }
+
+    & ul li {
+      font-size: 18px;
+    }
+  }
+
+  .button {
+    font-size: 25px;
+    padding: 10px 30px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+}

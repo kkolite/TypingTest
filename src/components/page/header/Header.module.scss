@@ -14,6 +14,22 @@
   gap: 40px;
 }
 
+.menu {
+  display: none;
+  border: 1px solid orange;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: white;
+  color: orange;
+  cursor: pointer;
+  opacity: .8;
+  transition: all .2s;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
 .link,
 .logo {
   text-decoration: none;
@@ -29,4 +45,33 @@
 .logo {
   font-family: 'Bruno Ace SC', cursive;
   font-size: 30px;
+}
+
+@media screen and (max-width: 500px) {
+  .header {
+    position: relative;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    right: 14px;
+    top: 43px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid orange;
+    border-radius: 20px;
+    transform: translateX(150%);
+    transition: all .2s;
+    z-index: 3;
+
+    &__active {
+      transform: translateX(0);
+    }
+  }
 }
