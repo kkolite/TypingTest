@@ -33,6 +33,14 @@ export const TEXT = {
 
   ABOUT: {
     QUOTE: '"Mastering typing is not just about speed, it\'s about communicating with accuracy and confidence in the digital age."',
-    QUOTE_AUTHOR: 'Chat GPT'
+    QUOTE_AUTHOR: 'Chat GPT',
+    STACK: 'Stack',
+    TIME: 'Time to Type!',
+    BUTTON: 'Let\'s Go',
+    GITHUB: 'Github',
+    STACK_1: 'React',
+    STACK_2: 'Redux + RTK',
+    STACK_3: 'TypeScript',
+    STACK_4: 'SCSS',
   }
 }

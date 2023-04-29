@@ -11,9 +11,9 @@ export const AboutInfo = () => {
     <>
       <section className={styles.section}>
         <div className={animation ? styles.block : styles.block + ' ' + styles.active__text}> 
-          <h4>Time to Type!</h4>
+          <h4>{TEXT.ABOUT.TIME}</h4>
           <NavLink to={EPages.TEST}>
-            <button className={styles.button}>Let's Go</button>
+            <button className={styles.button}>{TEXT.ABOUT.BUTTON}</button>
           </NavLink>
         </div>
         <img 
@@ -35,15 +35,15 @@ export const AboutInfo = () => {
           className={animation ? styles.image : styles.image + ' ' + styles.active__image}
         />
         <div className={animation ? styles.block : styles.block + ' ' + styles.active__text}>
-          <h4>Stack</h4>
+          <h4>{TEXT.ABOUT.STACK}</h4>
           <ul>
-            <li>React</li>
-            <li>Redux + RTK</li>
-            <li>TypeScript</li>
-            <li>SCSS</li>
+            <li>{TEXT.ABOUT.STACK_1}</li>
+            <li>{TEXT.ABOUT.STACK_2}</li>
+            <li>{TEXT.ABOUT.STACK_3}</li>
+            <li>{TEXT.ABOUT.STACK_4}</li>
           </ul>
           <a href="https://github.com/kkolite">
-            <button className={styles.button}>Github</button>
+            <button className={styles.button}>{TEXT.ABOUT.GITHUB}</button>
           </a>
         </div>
       </section>

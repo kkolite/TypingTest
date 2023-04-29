@@ -6,7 +6,6 @@ export const useKeypress = () => {
 
   const setListener = () => {
     window.onkeypress = (e) => {
-      console.log(e.key);
       dispatch(check(e.key));
     }
   }
