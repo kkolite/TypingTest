@@ -42,5 +42,11 @@ export const TEXT = {
     STACK_2: 'Redux + RTK',
     STACK_3: 'TypeScript',
     STACK_4: 'SCSS',
+  },
+
+  ERROR: {
+    HEADER: 'Ooops...',
+    MAIN: 'Page not fount',
+    BUTTON: 'To Main'
   }
 }

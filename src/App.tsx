@@ -21,13 +21,13 @@ function App() {
         {
           path: EPages.TOP,
           element: <Top />,
+        },
+        {
+          path: '/*',
+          element: <Error />,
         }
-      ],
-    },
-    {
-      path: '/*',
-      element: <Error />,
-    },
+      ]
+    }
   ]);
 
   return <RouterProvider router={router} />;
