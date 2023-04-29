@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSpeed } from "../../../hooks";
-import { useAppSelector } from "../../../store/hook";
+import { useAppDispatch, useAppSelector } from "../../../store/hook";
+import { addResult } from "../../../store/slices/topSlice";
 
 export const Finish = () => {
   const { stopInterval } = useSpeed();
@@ -10,6 +11,7 @@ export const Finish = () => {
   const speed = useAppSelector(state => state.test.speed);
   const quality = useAppSelector(state => state.test.quality);
   const start = useAppSelector(state => state.test.startTime);
+  const dispatch = useAppDispatch();
 
   const time = Date.now() - start;
 
@@ -18,7 +20,13 @@ export const Finish = () => {
   }, []);
 
   const handleClick = () => {
-    // Set to top
+    const result = {
+      name,
+      time,
+      speed,
+      quality
+    }
+    dispatch(addResult(result));
   }
   
   return (
