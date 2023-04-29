@@ -1,5 +1,7 @@
 export enum EPages {
-  TEST = '/test'
+  TEST = '/test',
+  MAIN = '/',
+  TOP = '/top'
 }
 
 export interface IApi {

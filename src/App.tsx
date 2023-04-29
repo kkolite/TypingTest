@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { About, Test, Error } from "./pages";
+import { About, Test, Error, Top } from "./pages";
 import { EPages } from "./data/types";
 import { Layout } from "./components/page";
 
@@ -18,6 +18,10 @@ function App() {
           path: EPages.TEST,
           element: <Test />,
         },
+        {
+          path: EPages.TOP,
+          element: <Top />,
+        }
       ],
     },
     {
