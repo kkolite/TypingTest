@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSpeed } from "../../../hooks";
 import { useAppDispatch, useAppSelector } from "../../../store/hook";
 import { addResult } from "../../../store/slices/topSlice";
+import { getTimeString } from "../../../utils";
 
 export const Finish = () => {
   const { stopInterval } = useSpeed();
@@ -14,10 +15,11 @@ export const Finish = () => {
   const dispatch = useAppDispatch();
 
   const time = Date.now() - start;
+  const timeString = getTimeString(time);
 
   useEffect(() => {
     stopInterval();
-  }, []);
+  });
 
   const handleClick = () => {
     const result = {
@@ -35,7 +37,7 @@ export const Finish = () => {
       <p>Ypu success passed test</p>
       <ul>
         <li>Speed: {speed}</li>
-        <li>Time: {speed}</li>
+        <li>Time: {timeString}</li>
         <li>Quality: {quality}</li>
       </ul>
       <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
