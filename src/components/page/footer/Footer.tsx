@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>2023</p>
-      <a href={AUTHOR_GITHUB}>kkolite</a>
+      <a href={AUTHOR_GITHUB} className={styles.link}>kkolite</a>
     </footer>
   );
 };

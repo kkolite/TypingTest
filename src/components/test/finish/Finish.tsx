@@ -24,10 +24,8 @@ export const Finish = () => {
   });
 
   const handleSaveResult = () => {
-    if (!name.length) setName('Anonim');
-
     const result = {
-      name,
+      name: name || 'Anonim',
       time,
       speed,
       quality

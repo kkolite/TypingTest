@@ -13,3 +13,20 @@
   justify-content: space-between;
   gap: 40px;
 }
+
+.link,
+.logo {
+  text-decoration: none;
+  color: orange;
+  opacity: .8;
+  transition: all .2s;
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.logo {
+  font-family: 'Bruno Ace SC', cursive;
+  font-size: 30px;
+}
