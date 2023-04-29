@@ -7,7 +7,7 @@ import { Layout } from "./components/page";
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/',
+      path: "/",
       element: <Layout />,
       children: [
         {
@@ -23,14 +23,14 @@ function App() {
           element: <Top />,
         },
         {
-          path: '/*',
+          path: "/*",
           element: <Error />,
-        }
-      ]
-    }
+        },
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

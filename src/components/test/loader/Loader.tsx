@@ -1,5 +1,5 @@
-import { TEXT } from '../../../data/text';
-import classes from './Loader.module.scss';
+import { TEXT } from "../../../data/text";
+import classes from "./Loader.module.scss";
 
 export const Loader = () => {
   return (

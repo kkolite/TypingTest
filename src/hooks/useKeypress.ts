@@ -7,12 +7,12 @@ export const useKeypress = () => {
   const setListener = () => {
     window.onkeypress = (e) => {
       dispatch(check(e.key));
-    }
-  }
+    };
+  };
 
   const removeListener = () => {
     window.onkeypress = null;
-  }
+  };
 
-  return { setListener, removeListener }
-}
+  return { setListener, removeListener };
+};

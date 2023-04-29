@@ -3,4 +3,4 @@ export const getTimeString = (time: number) => {
   const seconds = `0${Math.round((time % 60000) / 1000)}`.slice(-2);
 
   return `${minutes}:${seconds}`;
-}
+};

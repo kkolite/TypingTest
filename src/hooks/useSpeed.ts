@@ -5,8 +5,9 @@ let interval = 0;
 
 export const useSpeed = () => {
   const dispatch = useAppDispatch();
-  const startInterval = () => interval = setInterval(() => dispatch(setSpeed()), 1000);
+  const startInterval = () =>
+    (interval = setInterval(() => dispatch(setSpeed()), 1000));
   const stopInterval = () => clearInterval(interval);
 
-  return { startInterval, stopInterval }
-}
+  return { startInterval, stopInterval };
+};

@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
-import { EPages } from '../../data/types';
-import { useAnimation } from '../../hooks';
-import { TEXT } from '../../data/text';
-import styles from './About.module.scss';
+import { NavLink } from "react-router-dom";
+import { EPages } from "../../data/types";
+import { useAnimation } from "../../hooks";
+import { TEXT } from "../../data/text";
+import styles from "./About.module.scss";
 
 export const AboutInfo = () => {
   const animation = useAnimation(200);
@@ -10,16 +10,22 @@ export const AboutInfo = () => {
   return (
     <>
       <section className={styles.section}>
-        <div className={animation ? styles.block : styles.block + ' ' + styles.active__text}> 
+        <div
+          className={
+            animation ? styles.block : styles.block + " " + styles.active__text
+          }
+        >
           <h4>{TEXT.ABOUT.TIME}</h4>
           <NavLink to={EPages.TEST}>
             <button className={styles.button}>{TEXT.ABOUT.BUTTON}</button>
           </NavLink>
         </div>
-        <img 
-          src="https://cdn-icons-png.flaticon.com/512/6329/6329420.png" 
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/6329/6329420.png"
           alt="keyboard"
-          className={animation ? styles.image : styles.image + ' ' + styles.active__image} 
+          className={
+            animation ? styles.image : styles.image + " " + styles.active__image
+          }
         />
       </section>
       <div className={styles.quote__container}>
@@ -29,12 +35,18 @@ export const AboutInfo = () => {
         </section>
       </div>
       <section className={styles.section}>
-        <img 
+        <img
           src="/React-icon.png"
           alt="react-orange"
-          className={animation ? styles.image : styles.image + ' ' + styles.active__image}
+          className={
+            animation ? styles.image : styles.image + " " + styles.active__image
+          }
         />
-        <div className={animation ? styles.block : styles.block + ' ' + styles.active__text}>
+        <div
+          className={
+            animation ? styles.block : styles.block + " " + styles.active__text
+          }
+        >
           <h4>{TEXT.ABOUT.STACK}</h4>
           <ul>
             <li>{TEXT.ABOUT.STACK_1}</li>
@@ -48,5 +60,5 @@ export const AboutInfo = () => {
         </div>
       </section>
     </>
-  )
+  );
 };

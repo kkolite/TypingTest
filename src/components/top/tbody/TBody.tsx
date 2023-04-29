@@ -2,7 +2,7 @@ import { useAppSelector } from "../../../store/hook";
 import { getTimeString } from "../../../utils";
 
 export const TBody = () => {
-  const top = useAppSelector(state => state.top.top);
+  const top = useAppSelector((state) => state.top.top);
 
   return (
     <tbody>

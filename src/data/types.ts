@@ -1,12 +1,12 @@
 export enum EPages {
-  TEST = '/test',
-  MAIN = '/',
-  TOP = '/top'
+  TEST = "/test",
+  MAIN = "/",
+  TOP = "/top",
 }
 
 export interface IApi {
-  title: string,
-  body: string
+  title: string;
+  body: string;
 }
 
 export enum ETestStatus {
@@ -15,11 +15,11 @@ export enum ETestStatus {
   LOADING,
   FINISH,
   SLEEP,
-  API_ERROR
+  API_ERROR,
 }
 
 export enum ESort {
-  TIME = 'time',
-  SPEED = 'speed',
-  QUALITY = 'quality',
+  TIME = "time",
+  SPEED = "speed",
+  QUALITY = "quality",
 }

@@ -1,1 +1,1 @@
-export const getTestArray = (str: string) => str.split('');
+export const getTestArray = (str: string) => str.split("");

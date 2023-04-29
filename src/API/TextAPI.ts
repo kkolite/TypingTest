@@ -7,4 +7,4 @@ export const getTextFromAPI = async () => {
   const res = await fetch(`${JSON_PLACEHOLDER}${POSTS}${ID}`);
   const { title }: IApi = await res.json();
   return `${title}`;
-}
+};

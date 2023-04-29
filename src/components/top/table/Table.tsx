@@ -1,5 +1,5 @@
-import { TBody, THead } from '..';
-import styles from './Table.module.scss';
+import { TBody, THead } from "..";
+import styles from "./Table.module.scss";
 
 export const Table = () => {
   return (
