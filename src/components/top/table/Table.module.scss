@@ -1,0 +1,12 @@
+.table {
+  margin-top: 50px;
+  width: 50%;
+  min-width: 300px;
+  border-collapse: collapse;
+  position: relative;
+
+  & tbody tr td {
+    border: 1px dotted orange;
+    padding: 5px;
+  }
+}

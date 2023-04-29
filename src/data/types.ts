@@ -17,3 +17,9 @@ export enum ETestStatus {
   SLEEP,
   API_ERROR
 }
+
+export enum ESort {
+  TIME = 'time',
+  SPEED = 'speed',
+  QUALITY = 'quality',
+}

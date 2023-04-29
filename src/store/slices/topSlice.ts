@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ESort } from '../../data/types';
 
 interface ITop {
   name: string,
@@ -8,11 +9,15 @@ interface ITop {
 }
 
 interface IScheduleState {
-  top: ITop[]
+  top: ITop[],
+  sortType: ESort,
+  isHigher: boolean
 }
 
 const initialState: IScheduleState = {
-  top: []
+  top: [],
+  sortType: ESort.SPEED,
+  isHigher: true
 };
 
 const testSlice = createSlice({
@@ -24,10 +29,18 @@ const testSlice = createSlice({
     },
     clearTop(state) {
       state.top = [];
+    },
+    setSort(state, action: PayloadAction<ESort>) {
+      const sort = action.payload;
+      state.top = state.isHigher
+      ? state.top.sort((a,b) => a[sort] - b[sort])
+      : state.top.sort((a,b) => b[sort] - a[sort]);
+      state.isHigher = !state.isHigher;
+      state.sortType = sort;
     }
   }
 });
 
 export default testSlice.reducer;
 
-export const { addResult, clearTop } = testSlice.actions;
+export const { addResult, clearTop, setSort } = testSlice.actions;
