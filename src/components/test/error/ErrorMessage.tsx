@@ -1,7 +1,9 @@
+import { TEXT } from "../../../data/text";
+
 export const ErrorMessage = () => {
   return (
     <div>
-      Oopps! Something went wrong with API.
+      {TEXT.TEST.ERROR}
     </div>
   );
 };

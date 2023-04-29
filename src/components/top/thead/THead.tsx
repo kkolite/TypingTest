@@ -1,3 +1,4 @@
+import { TEXT } from "../../../data/text";
 import { ESort } from "../../../data/types";
 import { useAppDispatch, useAppSelector } from "../../../store/hook";
 import { setSort } from "../../../store/slices/topSlice";
@@ -15,25 +16,25 @@ export const THead = () => {
     <thead>
       <tr className={styles.thead}>
         <th>
-          Name
+          {TEXT.TEST.NAME}
         </th>
         <th 
           onClick={() => handleClick(ESort.SPEED)}
           className={activeSort === ESort.SPEED ? styles.active : ''}
         >
-          Speed
+          {TEXT.TEST.SPEED}
         </th>
         <th 
           onClick={() => handleClick(ESort.TIME)}
           className={activeSort === ESort.TIME ? styles.active : ''}
         >
-          Time
+          {TEXT.TEST.TIME}
         </th>
         <th 
           onClick={() => handleClick(ESort.QUALITY)}
           className={activeSort === ESort.QUALITY ? styles.active : ''}
         >
-          Quality
+          {TEXT.TEST.QUALITY}
         </th>
       </tr>
     </thead>

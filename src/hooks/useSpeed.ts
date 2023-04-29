@@ -1,7 +1,7 @@
 import { useAppDispatch } from "../store/hook"
 import { setSpeed } from "../store/slices/testSlice";
 
-let interval:number = 0;
+let interval = 0;
 
 export const useSpeed = () => {
   const dispatch = useAppDispatch();

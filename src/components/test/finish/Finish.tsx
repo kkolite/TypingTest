@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useKeypress, useSpeed } from "../../../hooks";
 import { useAppDispatch, useAppSelector } from "../../../store/hook";
 import { addResult } from "../../../store/slices/topSlice";
-import { getTime, getTimeString } from "../../../utils";
+import { getTimeString } from "../../../utils";
 import { finish } from "../../../store/slices/testSlice";
+import { TEXT } from "../../../data/text";
 import styles from './Finish.module.scss';
 
 export const Finish = () => {
@@ -15,7 +16,9 @@ export const Finish = () => {
 
   const speed = useAppSelector(state => state.test.speed);
   const quality = useAppSelector(state => state.test.quality);
-  const time = getTime();
+  const start = useAppSelector(state => state.test.startTime);
+  const end = useAppSelector(state => state.test.endTime);
+  const time = end - start;
   const timeString = getTimeString(time);
 
   useEffect(() => {
@@ -40,16 +43,16 @@ export const Finish = () => {
   
   return (
     <div className={styles.container}>
-      <p className={styles.h}>Congrats!</p>
-      <p className={styles.text}>You success passed test! You can save result (type your name or save it as anonim)</p>
+      <p className={styles.h}>{TEXT.TEST.CONGRATS}</p>
+      <p className={styles.text}>{TEXT.TEST.FINISH}</p>
       <ul className={styles.list}>
-        <li>Speed: {speed.toFixed(1)} s/m</li>
-        <li>Quality: {quality.toFixed(1)} %</li>
-        <li>Time: {timeString}</li>
+        <li>{TEXT.TEST.SPEED}: {speed.toFixed(1)} {TEXT.TEST.SperM}</li>
+        <li>{TEXT.TEST.QUALITY}: {quality.toFixed(1)} {TEXT.TEST.PERCENT}</li>
+        <li>{TEXT.TEST.TIME}: {timeString}</li>
       </ul>
       <input 
         type="text"
-        placeholder="Enter your name" 
+        placeholder={TEXT.TEST.PLACEHOLDER} 
         value={name} 
         onChange={(e) => setName(e.target.value)}
         className={styles.input}
@@ -59,13 +62,13 @@ export const Finish = () => {
           onClick={handleSaveResult}
           className={styles.button + ' button'}
         >
-          Save result
+          {TEXT.TEST.SAVE}
         </button>
         <button 
           onClick={handleTryAgain}
           className={styles.button + ' button'}
         >
-          Try Again
+          {TEXT.TEST.AGAIN}
         </button>
       </div>
     </div>

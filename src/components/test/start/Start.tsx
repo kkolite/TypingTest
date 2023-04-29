@@ -1,3 +1,4 @@
+import { TEXT } from "../../../data/text";
 import { useKeypress, useSpeed } from "../../../hooks";
 import { useAppDispatch } from "../../../store/hook";
 import { fetchText } from "../../../store/slices/testSlice";
@@ -16,12 +17,14 @@ export const Start = () => {
 
   return (
     <div className={styles.container}>
-      <p className={styles.text}>Are you ready?</p>
+      <p className={styles.text}>
+        {TEXT.TEST.READY}
+      </p>
       <button 
         onClick={handleClick} 
         className={styles.button + ' button'}
       >
-        Let's Start!
+        {TEXT.TEST.START}
       </button>
     </div>
   );
