@@ -12,5 +12,6 @@ export enum ETestStatus {
   WAITING,
   LOADING,
   FINISH,
-  SLEEP
+  SLEEP,
+  API_ERROR
 }

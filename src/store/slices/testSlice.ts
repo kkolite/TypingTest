@@ -72,7 +72,7 @@ const testSlice = createSlice({
         state.startTime = Date.now();
       })
       .addMatcher(isError, (state, action: PayloadAction<string>) => {
-        state.status = ETestStatus.WAITING;
+        state.status = ETestStatus.API_ERROR;
         state.error = action.payload;
       });
   },
