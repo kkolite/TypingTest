@@ -20,7 +20,7 @@ const initialState: IScheduleState = {
   isHigher: true,
 };
 
-const testSlice = createSlice({
+const topSlice = createSlice({
   name: "top",
   initialState,
   reducers: {
@@ -41,6 +41,6 @@ const testSlice = createSlice({
   },
 });
 
-export default testSlice.reducer;
+export default topSlice.reducer;
 
-export const { addResult, clearTop, setSort } = testSlice.actions;
+export const { addResult, clearTop, setSort } = topSlice.actions;
